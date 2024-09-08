@@ -4,6 +4,7 @@ import (
 	"go-web-crud/entities"
 	tagmodel "go-web-crud/models/tag"
 	"net/http"
+	"strconv"
 	"text/template"
 )
 
@@ -49,18 +50,46 @@ func Create(w http.ResponseWriter, r *http.Request) {
 }
 
 func Edit(w http.ResponseWriter, r *http.Request) {
-	files, err := template.ParseFiles("views/pages/tag/edit.html")
+	if r.Method == "GET" {
+		files, err := template.ParseFiles("views/pages/tag/edit.html")
 
-	if err != nil {
-		panic(err)
+		idString := r.URL.Query().Get("id")
+		id, _ := strconv.Atoi(idString)
+
+		if err != nil {
+			panic(err)
+		}
+
+		data := map[string]any{
+			"tag": tagmodel.FindById(id),
+		}
+
+		files.Execute(w, data)
 	}
 
-	err = files.Execute(w, nil)
-	if err != nil {
-		return
+	if r.Method == "POST" {
+		idString := r.URL.Query().Get("id")
+		id, _ := strconv.Atoi(idString)
+
+		var tag = entities.Tag{}
+		tag.Name = r.FormValue("name")
+
+		if success := tagmodel.Update(id, tag); !success {
+			files, _ := template.ParseFiles("views/pages/tag/edit.html")
+			files.Execute(w, nil)
+		}
+
+		http.Redirect(w, r, "/tag", http.StatusSeeOther)
 	}
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
-	//
+	idString := r.URL.Query().Get("id")
+	id, _ := strconv.Atoi(idString)
+
+	if err := tagmodel.Delete(id); err != nil {
+		panic(err)
+	}
+
+	http.Redirect(w, r, "/tag", http.StatusSeeOther)
 }
