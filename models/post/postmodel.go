@@ -6,7 +6,7 @@ import (
 )
 
 func GetAll() []entities.Post {
-	query, err := config.DB.Query(`SELECT * FROM post`)
+	query, err := config.DB.Query(`SELECT * FROM posts`)
 	if err != nil {
 		panic(err)
 	}

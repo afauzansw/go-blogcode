@@ -6,7 +6,7 @@ import (
 )
 
 func Welcome(w http.ResponseWriter, r *http.Request) {
-	files, err := template.ParseFiles("views/home.html")
+	files, err := template.ParseFiles("views/pages/home/home.html")
 
 	if err != nil {
 		panic(err)

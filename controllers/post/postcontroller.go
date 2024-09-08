@@ -1,7 +1,7 @@
 package postcontroller
 
 import (
-	postmodel "go-web-crud/models"
+	postmodel "go-web-crud/models/tag"
 	"net/http"
 	"text/template"
 )
@@ -9,13 +9,10 @@ import (
 func Index(w http.ResponseWriter, r *http.Request) {
 	posts := postmodel.GetAll()
 	data := map[string]any{
-		"post": posts,
+		"posts": posts,
 	}
 
-	files, err := template.ParseFiles("views/post/index.html")
-	if err != nil {
-		panic(err)
-	}
+	files, err := template.ParseFiles("views/pages/post/index.html")
 
 	err = files.Execute(w, data)
 	if err != nil {
@@ -24,20 +21,26 @@ func Index(w http.ResponseWriter, r *http.Request) {
 }
 
 func Create(w http.ResponseWriter, r *http.Request) {
-	files, err := template.ParseFiles("views/post/create.html")
+	if r.Method == "GET" {
+		files, err := template.ParseFiles("views/pages/post/create.html")
 
-	if err != nil {
-		panic(err)
+		if err != nil {
+			panic(err)
+		}
+
+		err = files.Execute(w, nil)
+		if err != nil {
+			panic(err)
+		}
 	}
 
-	err = files.Execute(w, nil)
-	if err != nil {
-		panic(err)
-	}
+	//if r.Method == "POST" {
+	//	var post = entities.Post{}
+	//}
 }
 
 func Edit(w http.ResponseWriter, r *http.Request) {
-	files, err := template.ParseFiles("views/post/edit.html")
+	files, err := template.ParseFiles("views/pages/post/edit.html")
 
 	if err != nil {
 		panic(err)
