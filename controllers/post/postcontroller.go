@@ -1,7 +1,7 @@
 package postcontroller
 
 import (
-	postmodel "go-web-crud/models/tag"
+	postmodel "go-web-crud/models/post"
 	"net/http"
 	"text/template"
 )

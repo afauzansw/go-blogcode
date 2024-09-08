@@ -18,7 +18,7 @@ func GetAll() []entities.Post {
 	for query.Next() {
 		var post entities.Post
 
-		err := query.Scan(&post.Id, &post.Title, &post.Desc, &post.CreatedAt, &post.UpdatedAt)
+		err := query.Scan(&post.Id, &post.Title, &post.Desc, &post.Tags, &post.Status, &post.CreatedAt, &post.UpdatedAt)
 		if err != nil {
 			panic(err)
 		}
