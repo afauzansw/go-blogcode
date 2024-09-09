@@ -3,4 +3,4 @@
 
 ## About Project
 
-This my first project with golang. I took a case study on blogger which is only available for post, tag, and publisher management.
+This is my first golang project. Transforming from Laravel with its very pampering artisan. This project is my practice to make CRUD in golang. I took a case study on blogger which is only available for post, tag, and publisher management.
