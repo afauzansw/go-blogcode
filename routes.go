@@ -20,8 +20,8 @@ func Routes() {
 	http.HandleFunc("/tag/edit", tagcontroller.Edit)
 	http.HandleFunc("/tag/delete", tagcontroller.Delete)
 
-	http.HandleFunc("/publisher", postcontroller.Index)
-	http.HandleFunc("/publisher/create", postcontroller.Create)
-	http.HandleFunc("/publisher/edit", postcontroller.Edit)
-	http.HandleFunc("/publisher/delete", postcontroller.Delete)
+	//http.HandleFunc("/publisher", postcontroller.Index)
+	//http.HandleFunc("/publisher/create", postcontroller.Create)
+	//http.HandleFunc("/publisher/edit", postcontroller.Edit)
+	//http.HandleFunc("/publisher/delete", postcontroller.Delete)
 }

@@ -1,6 +1,7 @@
 package postcontroller
 
 import (
+	"go-web-crud/entities"
 	postmodel "go-web-crud/models/post"
 	"net/http"
 	"text/template"
@@ -34,9 +35,21 @@ func Create(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	//if r.Method == "POST" {
-	//	var post = entities.Post{}
-	//}
+	if r.Method == "POST" {
+		var post = entities.Post{}
+		post.Title = r.FormValue("title")
+		post.Status = r.FormValue("status")
+		post.Tags = r.FormValue("tags")
+		post.Desc = r.FormValue("desc")
+
+		if success := postmodel.Create(post); !success {
+			files, _ := template.ParseFiles("views/pages/post/create.html")
+			files.Execute(w, nil)
+		}
+
+		http.Redirect(w, r, "/post", http.StatusSeeOther)
+
+	}
 }
 
 func Edit(w http.ResponseWriter, r *http.Request) {
