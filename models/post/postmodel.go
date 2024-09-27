@@ -3,6 +3,7 @@ package postmodel
 import (
 	"go-web-crud/config"
 	"go-web-crud/entities"
+	"go-web-crud/utils"
 	"time"
 )
 
@@ -19,7 +20,7 @@ func GetAll() []entities.Post {
 	for query.Next() {
 		var post entities.Post
 
-		err := query.Scan(&post.Id, &post.Title, &post.Desc, &post.Tags, &post.Status, &post.CreatedAt, &post.UpdatedAt)
+		err := query.Scan(&post.Id, &post.Title, &post.Description, &post.Tags, &post.Status, &post.Slug, &post.CreatedAt, &post.UpdatedAt)
 		if err != nil {
 			panic(err)
 		}
@@ -33,10 +34,11 @@ func GetAll() []entities.Post {
 func Create(post entities.Post) bool {
 	post.CreatedAt = time.Now()
 	post.UpdatedAt = time.Now()
+	post.Slug = utils.GenerateSlug(post.Title)
 
 	query, err := config.DB.Exec(`
-INSERT INTO posts (title, desc, tags, status, created_at, updated_at)
-VALUE (?, ?, ?, ?, ?, ?)`, post.Title, post.Desc, post.Tags, post.Status, post.CreatedAt, post.UpdatedAt)
+INSERT INTO posts (title, description, tags, status, slug, created_at, updated_at)
+VALUES (?, ?, ?, ?, ?, ?, ?)`, post.Title, post.Description, post.Tags, post.Status, post.Slug, post.CreatedAt, post.UpdatedAt)
 
 	if err != nil {
 		panic(err)

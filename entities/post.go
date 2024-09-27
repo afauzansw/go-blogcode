@@ -5,11 +5,12 @@ import (
 )
 
 type Post struct {
-	Id        uint
-	Title     string
-	Desc      string
-	Tags      string
-	Status    string
-	CreatedAt time.Time
-	UpdatedAt time.Time
+	Id          uint
+	Title       string
+	Description string
+	Tags        string
+	Status      string
+	Slug        string
+	CreatedAt   time.Time
+	UpdatedAt   time.Time
 }

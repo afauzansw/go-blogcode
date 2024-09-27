@@ -14,6 +14,7 @@ func Routes() {
 	http.HandleFunc("/post/create", postcontroller.Create)
 	http.HandleFunc("/post/edit", postcontroller.Edit)
 	http.HandleFunc("/post/delete", postcontroller.Delete)
+	http.HandleFunc("/post/show", postcontroller.Show)
 
 	http.HandleFunc("/tag", tagcontroller.Index)
 	http.HandleFunc("/tag/create", tagcontroller.Create)

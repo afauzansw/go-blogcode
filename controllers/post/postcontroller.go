@@ -40,7 +40,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 		post.Title = r.FormValue("title")
 		post.Status = r.FormValue("status")
 		post.Tags = r.FormValue("tags")
-		post.Desc = r.FormValue("desc")
+		post.Description = r.FormValue("desc")
 
 		if success := postmodel.Create(post); !success {
 			files, _ := template.ParseFiles("views/pages/post/create.html")
@@ -67,4 +67,16 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 
 func Delete(w http.ResponseWriter, r *http.Request) {
 	//
+}
+
+func Show(w http.ResponseWriter, r *http.Request) {
+	files, err := template.ParseFiles("views/pages/public/post.html")
+
+	if err != nil {
+		panic(err)
+	}
+
+	err = files.Execute(w, nil)
+	if err != nil {
+	}
 }
