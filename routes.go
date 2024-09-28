@@ -3,6 +3,7 @@ package main
 import (
 	homecontroller "go-web-crud/controllers/home"
 	postcontroller "go-web-crud/controllers/post"
+	"go-web-crud/controllers/publisher"
 	tagcontroller "go-web-crud/controllers/tag"
 	"net/http"
 )
@@ -21,8 +22,8 @@ func Routes() {
 	http.HandleFunc("/tag/edit", tagcontroller.Edit)
 	http.HandleFunc("/tag/delete", tagcontroller.Delete)
 
-	//http.HandleFunc("/publisher", postcontroller.Index)
-	//http.HandleFunc("/publisher/create", postcontroller.Create)
-	//http.HandleFunc("/publisher/edit", postcontroller.Edit)
-	//http.HandleFunc("/publisher/delete", postcontroller.Delete)
+	http.HandleFunc("/publisher", publisher.Index)
+	http.HandleFunc("/publisher/create", publisher.Create)
+	http.HandleFunc("/publisher/edit", publisher.Edit)
+	http.HandleFunc("/publisher/delete", publisher.Delete)
 }
