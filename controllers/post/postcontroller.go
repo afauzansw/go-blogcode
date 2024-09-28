@@ -4,6 +4,7 @@ import (
 	"go-web-crud/entities"
 	postmodel "go-web-crud/models/post"
 	"net/http"
+	"strconv"
 	"text/template"
 )
 
@@ -66,7 +67,14 @@ func Edit(w http.ResponseWriter, r *http.Request) {
 }
 
 func Delete(w http.ResponseWriter, r *http.Request) {
-	//
+	idString := r.URL.Query().Get("id")
+	id, _ := strconv.Atoi(idString)
+
+	if err := postmodel.Delete(id); err != nil {
+		panic(err)
+	}
+
+	http.Redirect(w, r, "/post", http.StatusSeeOther)
 }
 
 func Show(w http.ResponseWriter, r *http.Request) {

@@ -299,12 +299,7 @@
                                     </td>
 
                                     <td class="p-4 space-x-2 whitespace-nowrap">
-                                        <button aria-controls="drawer-update-product-default" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                                                data-drawer-placement="right"
-                                                data-drawer-show="drawer-update-product-default"
-                                                data-drawer-target="drawer-update-product-default"
-                                                id="updateProductButton"
-                                                type="button">
+                                        <a href="/post/edit?id={{ .Id }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
                                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M17.414 2.586a2 2 0 00-2.828 0L7 10.172V13h2.828l7.586-7.586a2 2 0 000-2.828z"></path>
@@ -313,13 +308,8 @@
                                                       fill-rule="evenodd"></path>
                                             </svg>
                                             Update
-                                        </button>
-                                        <button aria-controls="drawer-delete-product-default" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900"
-                                                data-drawer-placement="right"
-                                                data-drawer-show="drawer-delete-product-default"
-                                                data-drawer-target="drawer-delete-product-default"
-                                                id="deleteProductButton"
-                                                type="button">
+                                        </a>
+                                        <a href="/post/delete?id={{ .Id }}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:focus:ring-red-900">
                                             <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
                                                  xmlns="http://www.w3.org/2000/svg">
                                                 <path clip-rule="evenodd"
@@ -327,7 +317,7 @@
                                                       fill-rule="evenodd"></path>
                                             </svg>
                                             Delete item
-                                        </button>
+                                        </a>
                                     </td>
                                 </tr>
                                 {{ end }}

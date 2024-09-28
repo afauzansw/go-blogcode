@@ -52,14 +52,25 @@ VALUES (?, ?, ?, ?, ?, ?, ?)`, post.Title, post.Description, post.Tags, post.Sta
 	return lastInsertId > 0
 }
 
-func findById() {
-	//
+func findById(id int) entities.Post {
+	query := config.DB.QueryRow(`SELECT * FROM posts WHERE id=?`, id)
+
+	var post entities.Post
+
+	err := query.Scan(&post.Id, &post.Title, &post.Slug, &post.Tags, &post.Status, &post.Description, &post.CreatedAt, &post.UpdatedAt)
+	if err != nil {
+		panic(err)
+	}
+
+	return post
 }
 
 func Update() {
 	//
 }
 
-func Delete() {
-	//
+func Delete(id int) error {
+	_, err := config.DB.Exec(`DELETE FROM posts WHERE id=?`, id)
+
+	return err
 }
