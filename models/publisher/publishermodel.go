@@ -61,11 +61,11 @@ func FindById(id int) entities.Publisher {
 }
 
 func Update(publisher entities.Publisher) bool {
-	//
+	return true
 }
 
 func Delete(id int) error {
-	_, err := config.DB.Exec("DELETE FROM publishers WHERE id=?", Id)
+	_, err := config.DB.Exec("DELETE FROM publishers WHERE id=?", id)
 
 	return err
 }
