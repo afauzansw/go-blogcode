@@ -1,282 +1,178 @@
 <!doctype html>
-<html class="dark" lang="en">
+<html lang="en" class="dark">
+
 <head>
     <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Blogger</title>
-
-    <link href="https://flowbite-admin-dashboard.vercel.app/crud/products/" rel="canonical">
-
-    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet" type="text/css" />
-
-
-    <link href="https://fonts.googleapis.com" rel="preconnect">
-    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css" rel="stylesheet"
+        type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet">
-    <link href="https://flowbite-admin-dashboard.vercel.app//app.css" rel="stylesheet">
-    <link href="https://flowbite-admin-dashboard.vercel.app/apple-touch-icon.png" rel="apple-touch-icon"
-          sizes="180x180">
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-    <meta content="#ffffff" name="msapplication-TileColor">
-    <meta content="#ffffff" name="theme-color">
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://flowbite-admin-dashboard.vercel.app//app.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css"
+        integrity="sha512-9xKTRVabjVeZmc+GUW8GgSmcREDunMM+Dt/GrzchfN8tkwHizc5RP4Ok/MXFFy5rIjJjzhndFScTceq5e6GvVQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <script>
+        document.documentElement.classList.remove('dark')
+    </script>
 </head>
-<body class="bg-gray-50 dark:bg-gray-800">
 
-
-<nav class="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-    <div class="px-3 py-3 lg:px-5 lg:pl-3">
-        <div class="flex items-center justify-between">
-            <div class="flex items-center justify-start">
-                <button aria-controls="sidebar" aria-expanded="true" class="p-2 text-gray-600 rounded cursor-pointer lg:hidden hover:text-gray-900 hover:bg-gray-100 focus:bg-gray-100 dark:focus:bg-gray-700 focus:ring-2 focus:ring-gray-100 dark:focus:ring-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                        id="toggleSidebarMobile">
-                    <svg class="w-6 h-6" fill="currentColor" id="toggleSidebarMobileHamburger" viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd"
-                              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                              fill-rule="evenodd"></path>
-                    </svg>
-                    <svg class="hidden w-6 h-6" fill="currentColor" id="toggleSidebarMobileClose" viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd"
-                              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                              fill-rule="evenodd"></path>
-                    </svg>
-                </button>
-                <a class="flex ml-2 md:mr-24" href="https://flowbite-admin-dashboard.vercel.app/">
-                    <img alt="FlowBite Logo" class="h-8 mr-3"
-                         src="https://flowbite-admin-dashboard.vercel.app/images/logo.svg"/>
-                    <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Flowbite</span>
-                </a>
-                <form action="#" class="hidden lg:block lg:pl-3.5" method="GET">
-                    <label class="sr-only" for="topbar-search">Search</label>
-                    <div class="relative mt-1 lg:w-96">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
-                                 viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path clip-rule="evenodd"
-                                      d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                      fill-rule="evenodd"></path>
-                            </svg>
+<body class="flex flex-col min-h-screen bg-gray-50 dark:bg-gray-800">
+    <nav class="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+        <div class="px-3 py-3 lg:px-5 lg:pl-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center justify-start">
+                    <a href="" class="flex ml-2 md:mr-24">
+                        <span class="mr-3 text-2xl font-semibold sm:text-2x dark:text-white"><i
+                                class="fa-solid fa-blog"></i></span>
+                        <span
+                            class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Blogger</span>
+                    </a>
+                    <form action="#" method="GET" class="hidden lg:block lg:pl-3.5">
+                        <label for="topbar-search" class="sr-only">Search</label>
+                        <div class="relative mt-1 lg:w-96">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                <svg class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor"
+                                    viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd"
+                                        d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                                        clip-rule="evenodd"></path>
+                                </svg>
+                            </div>
+                            <input type="text" name="email" id="topbar-search"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                placeholder="Search">
                         </div>
-                        <input class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" id="topbar-search" name="email"
-                               placeholder="Search"
-                               type="text">
-                    </div>
-                </form>
-            </div>
-            <div class="flex items-center">
-                <button class="p-2 text-gray-500 rounded-lg lg:hidden hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white" id="toggleSidebarMobileSearch"
-                        type="button">
-                    <span class="sr-only">Search</span>
-
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd"
-                              d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                              fill-rule="evenodd"></path>
-                    </svg>
-                </button>
-
-                <button class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5" data-tooltip-target="tooltip-toggle" id="theme-toggle"
-                        type="button">
-                    <svg class="hidden w-5 h-5" fill="currentColor" id="theme-toggle-dark-icon" viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-                    </svg>
-                    <svg class="hidden w-5 h-5" fill="currentColor" id="theme-toggle-light-icon" viewBox="0 0 20 20"
-                         xmlns="http://www.w3.org/2000/svg">
-                        <path clip-rule="evenodd"
-                              d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd"></path>
-                    </svg>
-                </button>
-                <div class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip" id="tooltip-toggle"
-                     role="tooltip">
-                    Toggle dark mode
-                    <div class="tooltip-arrow" data-popper-arrow></div>
-                </div>
-
-                <div class="flex items-center ml-3">
-                    <div>
-                        <button aria-expanded="false"
-                                class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
-                                data-dropdown-toggle="dropdown-2" id="user-menu-button-2" type="button">
-                            <span class="sr-only">Open user menu</span>
-                            <img alt="user photo"
-                                 class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg">
-                        </button>
-                    </div>
-
+                    </form>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-<div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    </nav>
+    <div class="flex pt-16 overflow-hidden bg-gray-50 dark:bg-gray-900">
+        <aside id="sidebar"
+            class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-16 font-normal duration-75 lg:flex transition-width"
+            aria-label="Sidebar">
+            <div
+                class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
+                <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
+                    <div
+                        class="flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
+                        <ul class="pb-2 space-y-2">
+                            <li>
+                                <a href="/"
+                                    class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700">
+                                    <i class="text-lg fa-solid fa-house-chimney"></i>
+                                    <span class="ml-3" sidebar-toggle-item>Dashboard</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
+                                    href="/post">
+                                    <i class="text-lg fa-solid fa-paper-plane"></i>
+                                    <span class="ml-3" sidebar-toggle-item>Posts</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
+                                    href="/tag">
+                                    <i class="text-lg fa-solid fa-tags"></i>
+                                    <span class="ml-3" sidebar-toggle-item>Tags</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
+                                    href="/publisher">
+                                    <i class="text-lg fa-solid fa-user"></i>
+                                    <span class="ml-3" sidebar-toggle-item>Publisher</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
-    <aside aria-label="Sidebar"
-           class="fixed top-0 left-0 z-20 flex flex-col flex-shrink-0 hidden w-64 h-full pt-16 font-normal duration-75 lg:flex transition-width"
-           id="sidebar">
-        <div class="relative flex flex-col flex-1 min-h-0 pt-0 bg-white border-r border-gray-200 dark:bg-gray-800 dark:border-gray-700">
-            <div class="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
-                <div class="flex-1 px-3 space-y-1 bg-white divide-y divide-gray-200 dark:bg-gray-800 dark:divide-gray-700">
-                    <ul class="pb-2 space-y-2">
-                        <li>
-                            <form action="#" class="lg:hidden" method="GET">
-                                <label class="sr-only" for="mobile-search">Search</label>
-                                <div class="relative">
-                                    <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                        <svg class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path clip-rule="evenodd"
-                                                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
-                                                  fill-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-200 dark:focus:ring-primary-500 dark:focus:border-primary-500" id="mobile-search" name="email"
-                                           placeholder="Search"
-                                           type="text">
+        <div id="main-content" class="relative w-full h-full overflow-y-hidden bg-gray-50 lg:ml-64 dark:bg-gray-900">
+            <main class="h-screen">
+                <div class="px-4 pt-6">
+                    <h1 class="mb-4 text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Add Post</h1>
+                    <div class="flex flex-col">
+                        <div class="inline-block min-w-full align-middle">
+                            <div class="overflow-hidden shadow bg-white dark:bg-gray-800">
+                                <div
+                                    class="p-4 mb-4 bg-white rounded-lg 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                                    <form action="/post/create" method="POST">
+                                        <div class="grid grid-cols-12 gap-6">
+                                            <div class="col-span-12">
+                                                <label for="title"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
+                                                <input type="text" name="title" id="title"
+                                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    placeholder="Laravel Auth" required>
+                                            </div>
+                                            <div class="col-span-12">
+                                                <label for="tags"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags</label>
+                                                <input type="text" name="tags" id="tags"
+                                                    class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                                                    placeholder="laravel, backend" required>
+                                            </div>
+                                            <div class="col-span-12">
+                                                <label for="status"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
+                                                <select id="status" name="status"
+                                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                                    <option value="published">Published</option>
+                                                    <option value="draft">Draft</option>
+                                                    <option value="private">Private</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-span-12">
+                                                <label for="desc"
+                                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                                                <textarea name="desc" id="desc" rows="10"></textarea>
+                                            </div>
+                                            <div class="col-span-12">
+                                                <button
+                                                    class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
+                                                    type="submit">Save</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
-                            </form>
-                        </li>
-                        <li>
-                            <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
-                               href="/">
-                                <svg class="w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
-                                    <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
-                                </svg>
-                                <span class="ml-3" sidebar-toggle-item>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
-                               href="/post">
-                                <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
-                                </svg>
-                                <span class="ml-3" sidebar-toggle-item>Posts</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
-                               href="/tag">
-                                <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
-                                </svg>
-                                <span class="ml-3" sidebar-toggle-item>Tags</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center p-2 text-base text-gray-900 rounded-lg hover:bg-gray-100 group dark:text-gray-200 dark:hover:bg-gray-700"
-                               href="/publisher">
-                                <svg class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
-                                     fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z"></path>
-                                </svg>
-                                <span class="ml-3" sidebar-toggle-item>Publisher</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </aside>
-
-    <div class="fixed inset-0 z-10 hidden bg-gray-900/50 dark:bg-gray-900/90" id="sidebarBackdrop"></div>
-
-    <div class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900" id="main-content">
-        <main>
-            <div class="p-4 bg-white block sm:flex items-center justify-between border-b border-gray-200 lg:mt-1.5 dark:bg-gray-800 dark:border-gray-700">
-                <div class="w-full mb-1">
-                    <div class="mb-4">
-                        <nav aria-label="Breadcrumb" class="flex mb-5">
-                            <ol class="inline-flex items-center space-x-1 text-sm font-medium md:space-x-2">
-                                <li class="inline-flex items-center">
-                                    <a class="inline-flex items-center text-gray-700 hover:text-primary-600 dark:text-gray-300 dark:hover:text-white"
-                                       href="#">
-                                        <svg class="w-5 h-5 mr-2.5" fill="currentColor" viewBox="0 0 20 20"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path>
-                                        </svg>
-                                        Home
-                                    </a>
-                                </li>
-                                <li>
-                                    <div class="flex items-center">
-                                        <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20"
-                                             xmlns="http://www.w3.org/2000/svg">
-                                            <path clip-rule="evenodd"
-                                                  d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                                  fill-rule="evenodd"></path>
-                                        </svg>
-                                        <a class="ml-1 text-gray-700 hover:text-primary-600 md:ml-2 dark:text-gray-300 dark:hover:text-white"
-                                           href="#">Posts</a>
-                                    </div>
-                                </li>
-                            </ol>
-                        </nav>
-                        <h1 class="text-xl font-semibold text-gray-900 sm:text-2xl dark:text-white">Create posts</h1>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-col">
-                <div class="overflow-x-auto">
-                    <div class="inline-block min-w-full align-middle">
-                        <div class="overflow-hidden shadow bg-white dark:bg-gray-800">
-                            <div class="p-4 mb-4 bg-white rounded-lg 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                                <form action="/post/create" method="POST">
-                                    <div class="grid grid-cols-12 gap-6">
-                                        <div class="col-span-12">
-                                            <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                            <input type="text" name="title" id="title" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Laravel Auth" required>
-                                        </div>
-                                        <div class="col-span-12">
-                                            <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags</label>
-                                            <input type="text" name="tags" id="tags" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="laravel, backend" required>
-                                        </div>
-                                        <div class="col-span-12">
-                                            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                            <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="published">Published</option>
-                                                <option value="draft">Draft</option>
-                                                <option value="private">Private</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-span-12">
-                                            <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <textarea name="desc" id="desc" rows="10"></textarea>
-                                        </div>
-                                        <div class="col-span-12">
-                                            <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Save</button>
-                                        </div>
-                                    </div>
-                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
 
-        </main>
-
+            <!-- Footer -->
+            <footer class="mt-8 py-4 text-center bg-gray-100 dark:bg-gray-700">
+                <p class="text-sm text-gray-500 dark:text-gray-400">
+                    &copy; 2024 affzn_. All rights reserved.
+                </p>
+            </footer>
+        </div>
     </div>
 
-</div>
+    <!-- Include Editor JS files. -->
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
 
-!-- Include Editor JS files. -->
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js"></script>
+    <!-- Initialize the editor. -->
+    <script>
+        new FroalaEditor('textarea');
+    </script>
 
-<!-- Initialize the editor. -->
-<script>
-    new FroalaEditor('textarea');
-</script>
-
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<script src="https://flowbite-admin-dashboard.vercel.app//app.bundle.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
+    <script src="https://flowbite-admin-dashboard.vercel.app//app.bundle.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.2/datepicker.min.js"></script>
 </body>
+
 </html>
