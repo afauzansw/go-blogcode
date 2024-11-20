@@ -1,4 +1,5 @@
-<p align="center"><img src="https://academy.alterra.id/blog/wp-content/uploads/2021/07/golang-img.png" width="400"></p>
+<h1 align="center">Blogger</h1>
+<p align="center">![image](https://github.com/user-attachments/assets/b03a1901-333c-4d90-88f6-31d13bd7f105)</p>
 
 
 ## About Project
