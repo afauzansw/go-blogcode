@@ -18,12 +18,7 @@
     <meta name="theme-color" content="#ffffff">
 
     <script>
-
-        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark')
-        }
+        document.documentElement.classList.remove('dark')
     </script>
 </head>
 
@@ -105,9 +100,9 @@
         <div id="main-content" class="relative w-full h-full overflow-y-auto bg-gray-50 lg:ml-64 dark:bg-gray-900">
             <main class="h-screen">
                 <div class="px-4 pt-6">
-                    <div class="grid gap-4 grid-cols-3">
+                    <div class="grid grid-cols-3 gap-4">
                         <div
-                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="w-full">
                                     <h3 class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400">
@@ -116,13 +111,13 @@
                                     <span
                                         class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">
                                         <i class="mr-2 fa-solid fa-compass"></i>
-                                        2,340
+                                        {{ .totalPostToday }}
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div
-                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="w-full">
                                     <h3 class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400">
@@ -131,13 +126,13 @@
                                     <span
                                         class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">
                                         <i class="mr-2 fa-solid fa-paper-plane"></i>
-                                        2,340
+                                        {{ .totalPost }}
                                     </span>
                                 </div>
                             </div>
                         </div>
                         <div
-                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="w-full">
                                     <h3 class="mb-3 text-base font-normal text-gray-500 dark:text-gray-400">
@@ -146,7 +141,7 @@
                                     <span
                                         class="text-2xl font-bold leading-none text-gray-900 sm:text-3xl dark:text-white">
                                         <i class="mr-2 fa-solid fa-user-group"></i>
-                                        2,340
+                                        {{ .totalPublisher }}
                                     </span>
                                 </div>
                             </div>
@@ -154,28 +149,30 @@
                     </div>
                     <div class="mt-4">
                         <div
-                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                            class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                             <div class="flex items-center justify-between mb-4">
                                 <div class="w-full">
                                     <h3 class="mb-4 text-base font-normal text-gray-500 dark:text-gray-400">
                                         Recent Post
                                     </h3>
                                     <div class="grid gap-4 grid-cols-3">
+                                        {{ range .posts }}
                                         <a href="/"
-                                            class="w-full h-24 p-4 bg-white border border-gray-200 rounded-lg shadow-sm 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
+                                            class="w-full h-24 p-4 bg-white border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 sm:p-6 dark:bg-gray-800">
                                             <div class="flex items-center justify-between mb-4">
                                                 <div class="w-full">
                                                     <h3
                                                         class="mb-3 text-lg font-bold text-gray-700 dark:text-white">
-                                                        Golang CRUD
+                                                        {{ .Title }}
                                                     </h3>
                                                     <p
                                                         class="w-64 truncate text-small font-normal text-gray-500 dark:text-gray-400">
-                                                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                                                        {{ .Description }}
                                                     </span>
                                                 </div>
                                             </div>
                                         </a>
+                                        {{ end }}
                                     </div>
                                 </div>
                             </div>
