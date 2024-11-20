@@ -2,17 +2,17 @@ package homecontroller
 
 import (
 	postmodel "go-web-crud/models/post"
+	publishermodel "go-web-crud/models/publisher"
 	"net/http"
 	"text/template"
 )
 
 func Welcome(w http.ResponseWriter, r *http.Request) {
-	posts := postmodel.GetAll()
 	data := map[string]any{
-		"posts": posts,
-		"totalPostToday": 3,
-		"totalPost": 15,
-		"totalPublisher": 5,
+		"posts": postmodel.GetAll(),
+		"totalPostToday": postmodel.Count(true),
+		"totalPost": postmodel.Count(false),
+		"totalPublisher": publishermodel.Count(),
 	}
 	
 	files, err := template.ParseFiles("views/pages/home/home.html")

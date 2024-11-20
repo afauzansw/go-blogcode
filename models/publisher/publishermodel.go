@@ -30,6 +30,20 @@ func GetAll() []entities.Publisher {
 	return publishers
 }
 
+func Count() int {
+	var totalPublishers int
+
+	query := `SELECT COUNT(*) AS total_publishers FROM publishers`
+	
+
+	err := config.DB.QueryRow(query).Scan(&totalPublishers)
+	if err != nil {
+		panic(err)
+	}
+
+	return totalPublishers
+}
+
 func Create(publisher entities.Publisher) bool {
 	publisher.CreatedAt = time.Now()
 	publisher.UpdatedAt = time.Now()

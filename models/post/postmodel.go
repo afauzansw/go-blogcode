@@ -31,6 +31,25 @@ func GetAll() []entities.Post {
 	return posts
 }
 
+func Count(isToday bool) int {
+	var totalPosts int
+	var query string
+
+	if isToday {
+		query = `SELECT COUNT(*) AS total_posts FROM posts WHERE DATE(created_at) = CURRENT_DATE()`
+	} else {
+		query = `SELECT COUNT(*) AS total_posts FROM posts`
+	}
+	
+
+	err := config.DB.QueryRow(query).Scan(&totalPosts)
+	if err != nil {
+		panic(err)
+	}
+
+	return totalPosts
+}
+
 func Create(post entities.Post) bool {
 	post.CreatedAt = time.Now()
 	post.UpdatedAt = time.Now()
