@@ -1,5 +1,5 @@
 <h1 align="center">Blogger</h1>
-<p align="center">![image](https://github.com/user-attachments/assets/b03a1901-333c-4d90-88f6-31d13bd7f105)</p>
+![image](https://github.com/user-attachments/assets/ca916344-461c-4588-bbcf-3bad4f8aeb43)
 
 
 ## About Project
