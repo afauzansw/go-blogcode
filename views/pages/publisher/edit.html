@@ -228,27 +228,19 @@
                     <div class="inline-block min-w-full align-middle">
                         <div class="overflow-hidden shadow bg-white dark:bg-gray-800">
                             <div class="p-4 mb-4 bg-white rounded-lg 2xl:col-span-2 dark:border-gray-700 sm:p-6 dark:bg-gray-800">
-                                <form action="/post/edit?id={{ .post.Id }}" method="POST">
+                                <form action="/publisher/edit?id={{ .publisher.Id }}" method="POST">
                                     <div class="grid grid-cols-12 gap-6">
                                         <div class="col-span-12">
-                                            <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Title</label>
-                                            <input type="text" name="title" id="title" value="{{ .post.Title }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Laravel Auth" required>
+                                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name</label>
+                                            <input type="text" name="name" id="name" value="{{ .publisher.Name }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Admin" required>
                                         </div>
                                         <div class="col-span-12">
-                                            <label for="tags" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Tags</label>
-                                            <input type="text" name="tags" id="tags" value="{{ .post.Tags }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="laravel, backend" required>
+                                            <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
+                                            <input type="email" name="email" id="email" value="{{ .publisher.Email }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="admin@blogin.com" required>
                                         </div>
                                         <div class="col-span-12">
-                                            <label for="status" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Status</label>
-                                            <select id="status" name="status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                                <option value="published" {{if eq .post.Status "published"}}selected{{end}}>Published</option>
-                                                <option value="draft" {{if eq .post.Status "draft"}}selected{{end}}>Draft</option>
-                                                <option value="private" {{if eq .post.Status "private"}}selected{{end}}>Private</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-span-12">
-                                            <label for="desc" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                            <textarea name="desc" id="desc" rows="10">{{ .post.Description }}</textarea>
+                                            <label for="job_title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Job Title</label>
+                                            <input type="text" name="job_title" id="job_title" value="{{ .publisher.JobTitle }}" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Frontend Developer" required>
                                         </div>
                                         <div class="col-span-12">
                                             <button class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800" type="submit">Save</button>

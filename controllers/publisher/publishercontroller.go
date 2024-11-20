@@ -48,11 +48,35 @@ func Create(w http.ResponseWriter, r *http.Request) {
 }
 
 func Edit(w http.ResponseWriter, r *http.Request) {
-	files, err := template.ParseFiles("views/pages/publisher/edit.html")
+	idString := r.URL.Query().Get("id")
+	id, _ := strconv.Atoi(idString)
 
-	err = files.Execute(w, nil)
-	if err != nil {
-		panic(err)
+	if r.Method == "GET" {
+		files, err := template.ParseFiles("views/pages/publisher/edit.html")
+
+		if err != nil {
+			panic(err)
+		}
+
+		data := map[string]any{
+			"publisher": publishermodel.FindById(id),
+		}
+
+		files.Execute(w, data)
+	}
+
+	if r.Method == "POST" {
+		var publisher = entities.Publisher{}
+		publisher.Name = r.FormValue("name")
+		publisher.Email = r.FormValue("email")
+		publisher.JobTitle = r.FormValue("job_title")
+
+		if success := publishermodel.Update(id, publisher); !success {
+			files, _ := template.ParseFiles("views/pages/publisher/edit.html")
+			files.Execute(w, nil)
+		}
+
+		http.Redirect(w, r, "/publisher", http.StatusSeeOther)
 	}
 }
 

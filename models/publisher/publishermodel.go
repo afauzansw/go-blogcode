@@ -60,8 +60,21 @@ func FindById(id int) entities.Publisher {
 	return publisher
 }
 
-func Update(publisher entities.Publisher) bool {
-	return true
+func Update(id int, publisher entities.Publisher) bool {
+	publisher.UpdatedAt = time.Now()
+
+	query, err := config.DB.Exec(`UPDATE publishers SET name = ?, email = ?, job_title = ?, updated_at = ? WHERE id = ?`, publisher.Name, publisher.Email, publisher.JobTitle, publisher.UpdatedAt, id)
+	
+	if err != nil {
+		panic(err)
+	}
+
+	result, err := query.RowsAffected()
+	if err != nil {
+		panic(err)
+	}
+
+	return result > 0
 }
 
 func Delete(id int) error {
